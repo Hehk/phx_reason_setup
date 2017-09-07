@@ -1,21 +1,37 @@
-# PhxReasonSetup
+#Phoenix Reason Setup
 
-To start your Phoenix server:
+1. add bs-platform to assets/package.json
+```sh
+npm install --save bs-platform
+```
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+2. create a bsconfig.json
+```json
+{
+  "name": "my awesome new app name",
+  "sources": {
+    "dir": "src"
+  }
+}
+```
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+3. load the data into your app
+brunch-config.json
+```js
+paths: {
+  watched: [... "lib/js"],
+},
+```
+and if you the reason auto required add
+```js
+modules: {
+  autoRequire: {
+    "js/app.js": [... "lib/js/src/app"]
+  }
+},
+```
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
-# phx_reason_setup
+4. make phoenix start watching
+```
+  node: ["node_modules/bs-platform/bin/bsb", "-w", cd: Path.expand("../assets", __DIR__)]
+```

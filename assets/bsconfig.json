@@ -1,0 +1,6 @@
+{
+  "name": "phx_reason_setup",
+  "sources": {
+    "dir": "src"
+  }
+}

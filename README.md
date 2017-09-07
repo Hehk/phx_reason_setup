@@ -1,11 +1,11 @@
-#Phoenix Reason Setup
+# Phoenix Reason Setup
 
-1. add bs-platform to assets/package.json
+1. Add bs-platform to assets/package.json
 ```sh
 npm install --save bs-platform
 ```
 
-2. create a bsconfig.json
+2. Create a bsconfig.json
 ```json
 {
   "name": "my awesome new app name",
@@ -15,14 +15,14 @@ npm install --save bs-platform
 }
 ```
 
-3. load the data into your app
+3. Load the data into your app
 brunch-config.json
 ```js
 paths: {
   watched: [... "lib/js"],
 },
 ```
-and if you the reason auto required add
+and if you want an independant reason application
 ```js
 modules: {
   autoRequire: {
@@ -31,7 +31,7 @@ modules: {
 },
 ```
 
-4. make phoenix start watching
+4. Make phoenix start watching
 ```
   node: ["node_modules/bs-platform/bin/bsb", "-w", cd: Path.expand("../assets", __DIR__)]
 ```
